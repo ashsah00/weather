@@ -1,0 +1,23 @@
+body {
+  font-family: "Protest Riot", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.whole {
+  background: rgb(229, 229, 234);
+  max-width: 600px;
+  margin: 45px auto;
+  padding: 30px;
+  border-radius: 16px;
+}
+
+#bar {
+  width: 80%;
+  background-color: rgb(229, 229, 234);
+  padding: 10px;
+}
+
+#bar #srchb {
+  border-radius: 10px;
+}
