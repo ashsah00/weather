@@ -8,10 +8,20 @@ function refreshWeather(response) {
   pTemp.innerHTML = cTemp;
 
   let humidity = document.querySelector(".h");
-  humidity.innerHTML = Math.round(response.data.temperature.humidity);
+  humidity.innerHTML = `${Math.round(response.data.temperature.humidity)} %`;
 
   let wind = document.querySelector(".w");
-  wind.innerHTML = Math.round(response.data.wind.speed);
+  wind.innerHTML = `${Math.round(response.data.wind.speed)} m/h`;
+
+  let cond = document.querySelector("#des");
+  cond.innerHTML = response.data.condition.description;
+
+  let dd = document.querySelector(".d");
+  //dd.innerHTML =
+  console.log(`${new Date(response.data.time * 1000)} ,`);
+
+  /* let emoji = document.querySelector(".icon");
+  emoji.innerHTML = response.data.condition.icon; */
 }
 
 function chgTemp(city) {
@@ -37,6 +47,7 @@ function cityEn(event) {
   chgTemp(cityIn.value); //storing the value
 }
 
+//event listener comes from button
 let sub = document.querySelector("#srchb");
 sub.addEventListener("click", cityEn);
 
