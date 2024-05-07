@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather App</title>
     <link rel="stylesheet" href="src/style.css">
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+
 </head>
 
 <div class="whole">
@@ -15,25 +17,29 @@
             <form>
 
                 <input type="search" placeholder="Enter a city..." id="bar">
-                <input type="submit" name="Search" id="srchb">
+                <input type="submit" value="Search" id="srchb">
             </form>
         </header>
         <main>
 
             <div class="temp-details">
                 <div>
-                    <h1>Paris</h1>
+                    <h1></h1>
                     <p>Tuesday 8:04, sunny
                         <br>
-                        Humidity: <strong>60%</strong> Wind: <strong>3km/h</strong>
+                        Humidity: <span class="h"><strong>60</strong>
+
+                        </span><strong>%</strong> Wind: <span class="w"><strong>3
+                            </strong></span><strong>m/h</strong>
+
                     </p>
                 </div>
 
                 <div class="temp">
 
                     <div class="icon">☀️</div>
-                    <div class="curTemp">12</div>
-                    <div class="uniTemp">ºC</div>
+                    <div class="curTemp"></div>
+                    <div class="uniTemp">ºF</div>
 
                 </div>
             </div>
@@ -50,6 +56,11 @@
         </footer>
 </div>
 
+<script src="src/script.js"></script>
+
+
 </body>
+
+
 
 </html>
