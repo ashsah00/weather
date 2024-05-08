@@ -16,12 +16,36 @@ function refreshWeather(response) {
   let cond = document.querySelector("#des");
   cond.innerHTML = response.data.condition.description;
 
-  let dd = document.querySelector(".d");
   //dd.innerHTML =
-  console.log(`${new Date(response.data.time * 1000)} ,`);
+  let date = new Date(response.data.time * 1000);
 
-  /* let emoji = document.querySelector(".icon");
-  emoji.innerHTML = response.data.condition.icon; */
+  let dd = document.querySelector(".d");
+  dd.innerHTML = dateFormat(date);
+
+  function dateFormat(date) {
+    let hours = date.getHours();
+    let mins = date.getMinutes();
+
+    let allDays = [
+      "Sunday",
+      "Monday",
+      "Tuesday",
+      "Wednesday",
+      "Thursday",
+      "Friday",
+      "Saturday",
+    ];
+    let day = allDays[date.getDay()];
+
+    if (mins < 0) {
+      mins = `0${mins}`;
+    }
+
+    return `${day} ${hours}:${mins}`;
+  }
+
+  let emoji = document.querySelector(".icon");
+  emoji.innerHTML = `<img src="${response.data.condition.icon_url}" class="icon"</img>`;
 }
 
 function chgTemp(city) {
