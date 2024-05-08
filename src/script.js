@@ -41,7 +41,7 @@ function refreshWeather(response) {
       mins = `0${mins}`;
     }
 
-    return `${day} ${hours}:${mins}`;
+    return `${day} ${hours}:${mins},`;
   }
 
   let emoji = document.querySelector(".icon");
