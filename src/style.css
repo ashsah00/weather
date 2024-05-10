@@ -92,7 +92,16 @@ strong,
   font-size: 15px;
   color: #2a1001;
   margin-top: 20px;
-  text-align: center;
+}
+
+ul {
+  margin-bottom: -5px;
+
+  padding: 0;
+}
+
+li {
+  list-style: none;
 }
 
 .min {
