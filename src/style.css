@@ -42,11 +42,14 @@ footer {
   font-size: 15px;
   border: none;
   font-weight: 500;
+  background: #a9d1e2;
 }
 
 #srchb:hover {
-  background: #a9d1e2;
   font-size: 14px;
+  transition: 0.8;
+  background: #fff;
+  cursor: pointer;
 }
 
 h1 {
@@ -58,6 +61,12 @@ main {
 .temp-details {
   display: flex;
   justify-content: space-between;
+}
+
+.d,
+.dayF {
+  color: #0485bb;
+  font-weight: 530;
 }
 
 strong,
@@ -92,6 +101,9 @@ strong,
   font-size: 15px;
   color: #2a1001;
   margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
 }
 
 ul {
@@ -104,6 +116,7 @@ li {
   list-style: none;
 }
 
-.min {
-  opacity: 0.7;
+.mm {
+  color: #884502;
+  font-weight: 500;
 }
