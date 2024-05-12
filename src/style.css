@@ -122,3 +122,7 @@ li {
   color: #884502;
   font-weight: 500;
 }
+
+.min {
+  opacity: 0.7;
+}

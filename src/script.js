@@ -112,9 +112,9 @@ function displayForecast(response) {
 <li class="mm">
 <span class="max">${Math.round(
           day.temperature.maximum
-        )}</span> | <span class="min">${Math.round(
+        )}º</span> | <span class="min">${Math.round(
           day.temperature.minimum
-        )}</span>
+        )}º</span>
 </li>
 
 </ul>`;
