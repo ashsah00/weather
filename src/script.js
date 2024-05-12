@@ -37,7 +37,7 @@ function refreshWeather(response) {
     ];
     let day = allDays[date.getDay()];
 
-    if (mins < 0) {
+    if (mins < 10) {
       mins = `0${mins}`;
     }
 
@@ -75,6 +75,7 @@ function cityEn(event) {
 //forecast funtions and code
 function formatDay(timestamp) {
   let date = new Date(timestamp * 1000);
+
   let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
   return days[date.getDay()];
