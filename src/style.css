@@ -104,6 +104,8 @@ strong,
   display: flex;
   justify-content: space-between;
   text-align: center;
+
+  width: 8px;
 }
 
 ul {

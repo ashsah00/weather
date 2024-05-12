@@ -72,47 +72,64 @@ function cityEn(event) {
   getForecast(cityIn.value);
 }
 
-//event listener comes from button
-let sub = document.querySelector("#srchb");
-sub.addEventListener("click", cityEn);
-
-chgTemp("Manila");
-
 //forecast funtions and code
+function formatDay(timestamp) {
+  let date = new Date(timestamp * 1000);
+  let days = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
 
-function displayForecast() {
-  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+  return days[date.getDay()];
+}
+
+function getForecast(city) {
+  //make API call and update the page
+  let apiKey = "d431c23aa7bd0aod0t4f840f8a543f42";
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=imperial`;
+  // run this to check if apiURL is working.
+  console.log(apiUrl);
+
+  axios(apiUrl).then(displayForecast);
+}
+
+function displayForecast(response) {
   let fcastHtml = "";
+  //analyse the response from API
+  console.log(response.data);
 
-  days.forEach(function (day) {
-    fcastHtml =
-      fcastHtml +
-      `      <ul>
-<li class="dayF">${day}</li>
+  let days = ["Mon", "Tue", "Wed", "Thu", "Fri"];
+
+  response.data.daily.forEach(function (day, index) {
+    if (index < 6) {
+      fcastHtml =
+        fcastHtml +
+        `      <ul>
+<li class="dayF">${formatDay(day.time)}</li>
 <li class="iconF">
 
-<img src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png"
-width="48px">
+<img src="${day.condition.icon_url}"; >
+
+
 </li>
 <li class="mm">
-<span class="max">17º</span> | <span class="min">14º</span>
+<span class="max">${Math.round(
+          day.temperature.maximum
+        )}</span> | <span class="min">${Math.round(
+          day.temperature.minimum
+        )}</span>
 </li>
 
 </ul>`;
+    }
   });
 
   let forecast = document.querySelector("#fcast");
   forecast.innerHTML = fcastHtml;
 }
 
-displayForecast();
-/*
-function getForecast(city) {
-  //make API call and update the page
-  let apiKey = "d431c23aa7bd0aod0t4f840f8a543f42";
-  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${city}&key=${apiKey}&units=imperial`;
-  // run this to check if apiURL is working.
-  //console.log(apiUrl);
+//event listener comes from button
 
-  axios.get(apiUrl).then(displayForecast);
-} */
+let sub = document.querySelector("#srchb");
+sub.addEventListener("click", cityEn);
+
+//default
+chgTemp("Manila");
+getForecast("Manila");
